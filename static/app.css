@@ -1,0 +1,18 @@
+.res_search{
+    position: absolute;
+    top: 44px;
+    background-color: #ffffff;
+    width: 205px;
+}
+.form-search{
+    position: relative;
+}
+ul.res_search_items{
+    list-style: none;
+}
+ul.res_search_items a{
+    text-decoration: none;
+}
+ul.res_search_items a:hover{
+    color: #ff0000;
+}

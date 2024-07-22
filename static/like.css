@@ -1,0 +1,86 @@
+
+.half__reaction {
+    text-align: center;
+    font-size: 36px;
+    font-size: 2.25rem;
+}
+.css-1ukx6ls {
+    color: inherit;
+    font-family: inherit;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.css-yyqrlz {
+    border: none !important;
+    outline: none !important;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    position: relative;
+    font-size: inherit;
+    border-radius: 100% !important;
+    width: 50px !important;
+    height: 50px !important;
+    padding: 0 !important;
+    line-height: 1em;
+    background-color: #ececec66;
+    -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    opacity: 1;
+    box-shadow: 0 0 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+.css-mpw198 {
+    opacity: 0;
+    width: 90%;
+    height: 90%;
+    border-radius: 3em;
+    border: 1px solid;
+    border-color: #e095ed;
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.css-ywt53g {
+    height: 26px;
+    display: block;
+    margin: 0 auto;
+    fill: #292929;
+}
+.css-1gawz0h {
+    cursor: pointer;
+    appearance: none;
+    position: relative;
+    font-size: inherit;
+    line-height: 1em;
+    background-color: rgba(36, 252, 201, 0.4);
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    opacity: 1;
+    box-shadow: 0px 0px 0px;
+    transform: translate3d(0px, 0px, 0px);
+    border: none !important;
+    outline: none !important;
+    border-radius: 100% !important;
+    width: 50px !important;
+    height: 50px !important;
+    padding: 0px !important;
+}
+.css-u7yegp{
+    padding: 10px
+}

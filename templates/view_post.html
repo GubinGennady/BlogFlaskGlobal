@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center h-50">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-sm-10">
+                <div class="card shadow-lg p-4">
+                    <h1 class="text-center mb-4">
+                        {{ post.title }}
+                    </h1>
+                     {% if post.image == None %}
+                                <img src="/uploads/default.png"class="card-img-top"/>
+                            {% else %}
+                                <img src="/{{post.image}}"class="card-img-top"/>
+                            {% endif %}
+                    <p>
+                        {{ post.description }}
+                    </p>
+                    <p>
+                    <div class="half__reaction space--bottom-4">
+                        <div class="css-1ukx6ls">
+                            {% if is_like %}
+                            <button class="css-yyqrlz" onclick="document.location.href = '/addlike/{{post.id}}'">
+                                <div class="css-mpw198"></div>
+                                <svg version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg"
+                                     class="css-ywt53g">
+                                    <path transform="scale(-1, 1) translate(-1200, 0)"
+                                          d="m1100 333.33c36.668 0 66.668 30 66.668 66.668v733.33c0 36.668-30 66.668-66.668 66.668h-133.33c-36.668 0-66.668-30-66.668-66.668v-733.33c0-36.668 30-66.668 66.668-66.668zm-604.64-300.63 281.27 377.4c7.332 10.734 11.664 23.734 11.664 37.734v666.66c0 36.801-29.867 66.668-66.664 66.668h-466.67c-29.465 0-55.398-19.332-63.867-47.535l-152.2-581.33c-25.266-85.465 38.734-171.13 127.87-171.13h221.53l-65.598-266.67c-13.867-97.266 106.2-154.2 172.66-81.801z"
+                                          fill-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                            {% else %}
+                            <button class="css-1gawz0h" onclick="document.location.href = '/addlike/{{post.id}}'">
+                                <div class="css-mpw198"></div>
+                                <svg version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg"
+                                     class="css-ywt53g">
+                                    <path transform="scale(-1, 1) translate(-1200, 0)"
+                                          d="m1100 333.33c36.668 0 66.668 30 66.668 66.668v733.33c0 36.668-30 66.668-66.668 66.668h-133.33c-36.668 0-66.668-30-66.668-66.668v-733.33c0-36.668 30-66.668 66.668-66.668zm-604.64-300.63 281.27 377.4c7.332 10.734 11.664 23.734 11.664 37.734v666.66c0 36.801-29.867 66.668-66.664 66.668h-466.67c-29.465 0-55.398-19.332-63.867-47.535l-152.2-581.33c-25.266-85.465 38.734-171.13 127.87-171.13h221.53l-65.598-266.67c-13.867-97.266 106.2-154.2 172.66-81.801z"
+                                          fill-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                            {% endif %}
+                            <div class="css-u7yegp">{{likes}}</div>
+                            {% if is_dislike %}
+                            <button class="css-yyqrlz" onclick="document.location.href = '/adddislike/{{post.id}}'">
+                                <div class="css-mpw198"></div>
+                                <div style="transform:rotate(180deg)">
+                                    <svg version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg"
+                                         class="css-ywt53g">
+                                        <path transform="scale(-1, 1) translate(-1200, 0)"
+                                              d="m1100 333.33c36.668 0 66.668 30 66.668 66.668v733.33c0 36.668-30 66.668-66.668 66.668h-133.33c-36.668 0-66.668-30-66.668-66.668v-733.33c0-36.668 30-66.668 66.668-66.668zm-604.64-300.63 281.27 377.4c7.332 10.734 11.664 23.734 11.664 37.734v666.66c0 36.801-29.867 66.668-66.664 66.668h-466.67c-29.465 0-55.398-19.332-63.867-47.535l-152.2-581.33c-25.266-85.465 38.734-171.13 127.87-171.13h221.53l-65.598-266.67c-13.867-97.266 106.2-154.2 172.66-81.801z"
+                                              fill-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </button>
+                            {% else %}
+                            <button class="css-1gawz0h" onclick="document.location.href = '/adddislike/{{post.id}}'">
+                                <div class="css-mpw198"></div>
+                                <div style="transform:rotate(180deg)">
+                                    <svg version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg"
+                                         class="css-ywt53g">
+                                        <path transform="scale(-1, 1) translate(-1200, 0)"
+                                              d="m1100 333.33c36.668 0 66.668 30 66.668 66.668v733.33c0 36.668-30 66.668-66.668 66.668h-133.33c-36.668 0-66.668-30-66.668-66.668v-733.33c0-36.668 30-66.668 66.668-66.668zm-604.64-300.63 281.27 377.4c7.332 10.734 11.664 23.734 11.664 37.734v666.66c0 36.801-29.867 66.668-66.664 66.668h-466.67c-29.465 0-55.398-19.332-63.867-47.535l-152.2-581.33c-25.266-85.465 38.734-171.13 127.87-171.13h221.53l-65.598-266.67c-13.867-97.266 106.2-154.2 172.66-81.801z"
+                                              fill-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </button>
+
+                            {% endif %}
+                            <div class="css-u7yegp">{{dislikes}}</div>
+                        </div>
+                    </div>
+
+                    <h4 class="text-center">Комментарий</h4>
+                    <ul class="list-group">
+                        {% for comment in comments %}
+                        {% if comment.comment != 'None' %}
+                        <li class="list-group-item"><b>{{comment.login}}: </b>{{comment.comment}} <small><em>{{comment.date}}</em></small>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                    {% if current_user.is_authenticated %}
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Ваш комментарий</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"
+                                      required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Добавить</button>
+                    </form>
+                    {% else %}
+                    <p>Пройдите авторизацию, чтобы оставить комментарии!</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

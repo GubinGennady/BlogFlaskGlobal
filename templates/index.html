@@ -1,8 +1,50 @@
 {% extends 'base.html' %}
 {% block title %}
-    Блог
+Блог
 {% endblock %}
 {% block content %}
-  <h2>Главная страница</h2>
+<h2>Главная страница</h2>
+
+
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for post in post_all %}
+            <div class="col">
+                <div class="card shadow-sm">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            {% if post.image == None %}
+                                <img src="/uploads/default.png"class="card-img-top"/>
+                            {% else %}
+                                <img src="{{post.image}}"class="card-img-top"/>
+                            {% endif %}
+                            <h4 class="my-0 fw-normal text-center">
+                                {{ post.title }}
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="card-body rounded-3 shadow-sm">
+
+                        <p class="card-text">{{ post.description }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                    <a href="/view/{{post.id}}" class="btn btn-primary" id="btn_view">View</a>
+                                {% if post.user == current_user.id %}
+                                    <a href="/edit/{{post.id}}" class="btn btn-success" id="btn_edit">Edit</a>
+                                    <a data-attr="{{post.id}}" class="btn btn-danger" id="btn_delete">Delete</a>
+                                {% endif %}
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 
 {% endblock %}
