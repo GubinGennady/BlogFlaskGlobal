@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="form-signin w-50 m-auto">
+{% if get_flashed_messages() %}
+
+        {% for cat, message in get_flashed_messages(with_categories=true) %}
+            {% if cat == 'error' %}
+             <div class="alert alert-danger" role="alert">
+                <p>{{message}}</p>
+             </div>
+            {% else %}
+             <div class="alert success" role="alert">
+                <p>{{message}}</p>
+             </div>
+            {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+        <h1 class="h3 mb-3 fw-normal text-center m-4">Добавить пост</h1>
+
+        <div class="form-floating m-3">
+            {{form.title}}
+            <label for="floatingInput">{{form.title.label}}</label>
+        </div>
+        <div class="form-floating m-3">
+            {{form.description}}
+            <label for="floatingPassword">{{form.description.label}}</label>
+        </div>
+         <div class="form-floating m-3">
+            {{form.image}}
+            <label for="floatingPassword">{{form.image.label}}</label>
+        </div>
+        {{form.submit}}
+    </form>
+</main>
+
+{% endblock %}
