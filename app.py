@@ -103,12 +103,16 @@ def addPost():
 @app.route('/delete/<int:id_post>')
 @login_required
 def delete(id_post):
-    from models import Post
+    from models import Post, Comment
 
     post = Post.query.get_or_404(id_post)
 
     if post.user != current_user.id:
         flash('У вас нет прав на удаление этой статьи', category='error')
+        return redirect('/')
+        
+    if Comment.query.filter_by(post=id_post).first():
+        flash('Есть комментарий, удолить пост не возможно', category='error')
         return redirect('/')
 
     db.session.delete(post)

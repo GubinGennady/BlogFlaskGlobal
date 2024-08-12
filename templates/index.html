@@ -8,6 +8,23 @@
 
 <div class="album py-5 bg-body-tertiary">
     <div class="container">
+	
+	{% if get_flashed_messages() %}
+
+        {% for cat, message in get_flashed_messages(with_categories=true) %}
+            {% if cat == 'error' %}
+             <div class="alert alert-danger" role="alert">
+                <p>{{message}}</p>
+             </div>
+            {% else %}
+             <div class="alert success" role="alert">
+                <p>{{message}}</p>
+             </div>
+            {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for post in post_all %}
@@ -18,7 +35,7 @@
                             {% if post.image == None %}
                                 <img src="/uploads/default.png"class="card-img-top"/>
                             {% else %}
-                                <img src="{{post.image}}"class="card-img-top"/>
+                                <img src="/static/{{post.image}}"class="card-img-top"/>
                             {% endif %}
                             <h4 class="my-0 fw-normal text-center">
                                 {{ post.title }}
